@@ -1,11 +1,11 @@
 const darkButton = document.getElementById('dark');
-const lightButton = document.getElementById('light');
+let darkmode = true;
 const body = document.body;
 
 darkButton.onclick = () => {
-    body.classList.replace('light', 'dark');
-};
-
-lightButton.onclick = () => {
-    body.classList.replace('dark', 'light');
+    if(darkmode){
+        body.classList.replace('light', 'dark');
+    } else {
+        body.classList.replace('dark', 'light')
+    }
 };

@@ -1,11 +1,10 @@
 :root{
-    --rows: 3;
     font-family: 'Roboto', sans-serif;
 
     --base1: #030201;
     --base2: #161413;
     --base3: #353331;
-    --base4: #7E7C77;
+    --base4: #7e7c77;
     --accent1: #6F0B0B;
     --accent2: #8D0202;
     --accent3: #971919;
@@ -15,7 +14,7 @@
     --base1: #030201;
     --base2: #161413;
     --base3: #353331;
-    --base4: #7E7C77;
+    --base4: #7e7c77;
     --accent1: #6F0B0B;
     --accent2: #8D0202;
     --accent3: #971919;
@@ -25,7 +24,7 @@
     --base1: #F6F6F6;
     --base2: #BAB9B7;
     --base3: #9C9B97;
-    --base4: #7E7C77;
+    --base4: #7e7c77;
     --accent1: #A71111;
     --accent2: #C90303;
     --accent3: #D32222;
@@ -33,6 +32,7 @@
 
 body, html{
     height: 100%;
+    fill: var(--base1);
     background-color: var(--base1);
 }
 
@@ -41,7 +41,6 @@ div, form, li, ol, p, ul {
     margin: 0;
     padding: 0;
 }
-
 
 .grid{
     margin: 0;
@@ -117,7 +116,7 @@ div, form, li, ol, p, ul {
 
 .dropdown{
     position: absolute;
-    width: 250px;
+    width: 150px;
     opacity: 0;
     z-index: 2;
 
@@ -128,9 +127,10 @@ div, form, li, ol, p, ul {
     border-bottom-right-radius: 25px;
 
     display: flex;
-    align-items: center;
-    justify-content: space-around;
-    height: 3rem;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    height: 4rem;
     margin-top: 7rem;
     padding: 0.5rem;
 
@@ -162,8 +162,8 @@ div, form, li, ol, p, ul {
     content: '';
     border: 2px solid white;
     border-radius: 50%;
-    width: 2rem;
-    height: 2rem;
+    width: 1rem;
+    height: 1rem;
     display: inline-block;
     vertical-align: middle;
     margin-right: 10px;
