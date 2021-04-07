@@ -77,13 +77,20 @@ div, form, li, ol, p, ul {
     grid-area: b;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: start;
     align-items: center;
+    padding: 10px;
 }
 
 .card:nth-child(3) {
     grid-area: c;
     opacity: 0;
+
+    display: grid;
+    grid-template-areas:
+        'a a b'
+        'c d d'
+        'c d d';
 }
 
 .button{
@@ -131,7 +138,7 @@ div, form, li, ol, p, ul {
     align-items: start;
     justify-content: start;
     height: 4rem;
-    margin-top: 7rem;
+    margin-top: 8.1rem;
     padding: 0.5rem;
 
     transition: opacity .15s ease-out;
@@ -167,4 +174,30 @@ div, form, li, ol, p, ul {
     display: inline-block;
     vertical-align: middle;
     margin-right: 10px;
+}
+
+.sidebarText{
+    color: var(--base4);
+    font-weight: bold;
+}
+
+.innerCard{
+    background: var(--accent1);
+    border-radius: 25px;
+}
+
+.innerCard:nth-child(1){
+    grid-area: a;
+}
+
+.innerCard:nth-child(2){
+    grid-area: b;
+}
+
+.innerCard:nth-child(3){
+    grid-area: c;
+}
+
+.innerCard:nth-child(4){
+    grid-area: d;
 }
