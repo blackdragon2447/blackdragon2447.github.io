@@ -31,8 +31,11 @@
 }
 
 body, html{
+    width: 100%;
     height: 100%;
-    fill: var(--base1);
+    border: 0;
+    margin: 0;
+    padding: 0;
     background-color: var(--base1);
 }
 
@@ -40,6 +43,15 @@ body, html{
 div, form, li, ol, p, ul {
     margin: 0;
     padding: 0;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(90deg);
+    }
 }
 
 .grid{
@@ -65,7 +77,6 @@ div, form, li, ol, p, ul {
 
 .card:nth-child(1) {
     background-color: var(--accent1);
-    border-radius: 25px;
     grid-area: a;
     display: flex;
     justify-content: space-evenly;
@@ -88,9 +99,9 @@ div, form, li, ol, p, ul {
 
     display: grid;
     grid-template-areas:
-        'a a b'
-        'c d d'
-        'c d d';
+        'f f g'
+        'h i i'
+        'h i i';
 }
 
 .button{
@@ -114,6 +125,24 @@ div, form, li, ol, p, ul {
 .button a:hover{
     text-decoration: none;
     color: var(--base3);
+}
+
+.button a:hover .triangle1{
+    animation: rotate 1s ease;
+    animation-fill-mode: forwards;
+}
+
+.button a:hover .triangle2{
+    animation: rotate 1s ease;
+    animation-fill-mode: forwards;
+}
+
+.button a:focus-within .triangle1{
+    transform: rotate(90deg);
+}
+
+.button a:focus-within .triangle2{
+    transform: rotate(90deg);
 }
 
 .button a:visited{
@@ -187,17 +216,17 @@ div, form, li, ol, p, ul {
 }
 
 .innerCard:nth-child(1){
-    grid-area: a;
+    grid-area: f;
 }
 
 .innerCard:nth-child(2){
-    grid-area: b;
+    grid-area: g;
 }
 
 .innerCard:nth-child(3){
-    grid-area: c;
+    grid-area: h;
 }
 
 .innerCard:nth-child(4){
-    grid-area: d;
+    grid-area: i;
 }
