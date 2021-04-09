@@ -8,6 +8,7 @@
     --accent1: #6F0B0B;
     --accent2: #8D0202;
     --accent3: #971919;
+    --text: #FFFFFF;
 }
 
 .dark{
@@ -45,12 +46,30 @@ div, form, li, ol, p, ul {
     padding: 0;
 }
 
-@keyframes rotate {
-    from {
+@keyframes triangleRotate {
+     0%{
         transform: rotate(0deg);
     }
-    to {
+    100%{
         transform: rotate(90deg);
+    }
+}
+
+@keyframes wiggle {
+    0%{
+        transform: rotate(0deg);
+    }
+    25%{
+        transform: rotate(30deg);
+    }
+    50%{
+        transform: rotate(0deg);
+    }
+    75%{
+        transform: rotate(30deg);
+    }
+    100%{
+        transform: rotate(0deg);
     }
 }
 
@@ -105,6 +124,8 @@ div, form, li, ol, p, ul {
         'h i i'
         'h i i';
     gap: 1rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
 }
 
 .button{
@@ -131,21 +152,23 @@ div, form, li, ol, p, ul {
 }
 
 .button a:hover .triangle1{
-    animation: rotate 1s ease;
+    animation: wiggle 0.25s ease;
     animation-fill-mode: forwards;
 }
 
 .button a:hover .triangle2{
-    animation: rotate 1s ease;
+    animation: wiggle 0.25s ease;
     animation-fill-mode: forwards;
 }
 
 .button a:focus-within .triangle1{
-    transform: rotate(90deg);
+    animation: triangleRotate 1s ease;
+    animation-fill-mode: forwards;
 }
 
 .button a:focus-within .triangle2{
-    transform: rotate(90deg);
+    animation: triangleRotate 1s ease;
+    animation-fill-mode: forwards;
 }
 
 .button a:visited{
@@ -157,7 +180,7 @@ div, form, li, ol, p, ul {
     position: absolute;
     width: 200px;
     opacity: 0;
-    z-index: 2;
+    z-index: -1;
 
     background-color: var(--base2);
     color: var(--base4);
@@ -195,6 +218,7 @@ div, form, li, ol, p, ul {
 .has-dropdown:focus-within .dropdown{
     opacity: 1;
     pointer-events: auto;
+    z-index: 2;
 }
 
 .dropdown-item a::before {
@@ -214,9 +238,10 @@ div, form, li, ol, p, ul {
 }
 
 .innerCard{
-    color: var(--base4);
+    color: white;
     background: var(--accent1);
     border-radius: 25px;
+    padding: 10px;
 }
 
 .innerCard:nth-child(1){
@@ -225,10 +250,16 @@ div, form, li, ol, p, ul {
 
 .innerCard:nth-child(2){
     grid-area: g;
+    background-image: url(../assets/FTD_Alastor.png);
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .innerCard:nth-child(3){
     grid-area: h;
+    background-image: url(../assets/ytLogo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .innerCard:nth-child(4){
