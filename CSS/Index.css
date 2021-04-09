@@ -72,11 +72,11 @@ div, form, li, ol, p, ul {
 }
 
 .card {
-    background: var(--accent1);
+    background: var(--base3);
 }
 
 .card:nth-child(1) {
-    background-color: var(--accent1);
+    background-color: var(--base2);
     grid-area: a;
     display: flex;
     justify-content: space-evenly;
@@ -94,14 +94,17 @@ div, form, li, ol, p, ul {
 }
 
 .card:nth-child(3) {
+    background: var(--base1);
     grid-area: c;
-    opacity: 0;
+}
 
+.subGrid{
     display: grid;
     grid-template-areas:
         'f f g'
         'h i i'
         'h i i';
+    gap: 1rem;
 }
 
 .button{
@@ -152,7 +155,7 @@ div, form, li, ol, p, ul {
 
 .dropdown{
     position: absolute;
-    width: 150px;
+    width: 200px;
     opacity: 0;
     z-index: 2;
 
@@ -211,6 +214,7 @@ div, form, li, ol, p, ul {
 }
 
 .innerCard{
+    color: var(--base4);
     background: var(--accent1);
     border-radius: 25px;
 }
