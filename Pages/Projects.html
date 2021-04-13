@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta charset="UTF-8">
+    <title>BlackDragon2447's Home</title>
+    <link rel="stylesheet" href="../CSS/Global.css">
+    <link rel="stylesheet" href="../CSS/Projects.css">
+    <script>
+        var oldElement;
+        var oldButton;
+        var showDiv = function(id){
+            if(oldElement == null){
+                oldElement = document.getElementById('1')
+                oldButton = document.getElementById('1b')
+            }
+            oldElement.classList.add('displayNone');
+            oldButton.classList.remove('highLightButton');
+            var element = document.getElementById(id);
+            var button = document.getElementById(id + 'b');
+            oldButton = button;
+            oldElement = element;
+            button.classList.add('highLightButton');
+            element.classList.remove('displayNone');
+        }
+    </script>
+    <script>
+        window.onload = function () {
+            if(window.location.hash) {
+                var id = window.location.hash.replace('#', '');
+                showDiv(id);
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/styles/default.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<section class="grid" id="grid">
+    <ul class="card">
+        <li class="button">
+            <a href="Index.html">HOME</a>
+        </li>
+        <li class="button">
+            <a href="Index.html">ABOUT</a>
+        </li>
+        <li class="button has-dropdown">
+            <a href="#">
+                <svg width="10" height="10" class="triangle1">
+                    <g>
+                        <title>Layer 1</title>
+                        <line id="svg_4" y2="10" x2="0" y1="0" x1="0" opacity="undefined" stroke="#000" fill="none"/>
+                        <line id="svg_5" y2="0" x2="0" y1="5" x1="10" opacity="undefined" stroke="#000" fill="none"/>
+                        <line id="svg_6" y2="0" x2="0" y1="5" x1="10" opacity="undefined" stroke="#000" fill="none"/>
+                        <line id="svg_7" y2="5" x2="10" y1="10" x1="0" opacity="undefined" stroke="#000" fill="none"/>
+                    </g>
+                </svg>
+                PROJECTS
+            </a>
+            <ul class="dropdown">
+                <li class="dropdown-item">
+                    <a href="Projects.html#1">Ark Admin Manager</a>
+                </li>
+                <li class="dropdown-item">
+                    <a href="Projects.html#2">Youtube</a>
+                </li>
+                <li class="dropdown-item">
+                    <a href="Projects.html#3">This Website</a>
+                </li>
+                <li class="dropdown-item">
+                    <a href="Projects.html#4">Code Snippets</a>
+                </li>
+            </ul>
+        </li>
+        <li class="button has-dropdown">
+            <a href="#">
+                <svg width="10" height="10" class="triangle2">
+                    <g>
+                        <title>Layer 1</title>
+                        <line id="svg_4" y2="10" x2="0" y1="0" x1="0" opacity="undefined" stroke="#000" fill="none"/>
+                        <line id="svg_5" y2="0" x2="0" y1="5" x1="10" opacity="undefined" stroke="#000" fill="none"/>
+                        <line id="svg_6" y2="0" x2="0" y1="5" x1="10" opacity="undefined" stroke="#000" fill="none"/>
+                        <line id="svg_7" y2="5" x2="10" y1="10" x1="0" opacity="undefined" stroke="#000" fill="none"/>
+                    </g>
+                </svg>
+                OTHER PLATFORMS
+            </a>
+            <ul class="dropdown">
+                <li class="dropdown-item">
+                    <a href="https://www.youtube.com/channel/UCQXVSW0pcuGE7gf6ssJQMZw">youtube</a>
+                </li>
+                <li class="dropdown-item">
+                    <a href="https://github.com/blackdragon2447">github</a>
+                </li>
+                <li class="dropdown-item">
+                    <a href="#">discord</a>
+                </li>
+            </ul>
+        </li>
+        <!--
+        <li class="button">
+            <script src="../scrips/Index.js"></script>
+            <a href="#" id="dark">dark mode</a>
+        </li>
+        -->
+    </ul>
+    <div class="card">
+        <p class="sidebarText">Latest Video</p>
+        <iframe class="latestVideoEmbed" vnum='0' cid="UCQXVSW0pcuGE7gf6ssJQMZw" width="200" height="114" frameborder="0" allowfullscreen></iframe>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script>
+            var reqURL = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent("https://www.youtube.com/feeds/videos.xml?channel_id=");
+            function loadVideo(iframe) {
+                $.getJSON(reqURL + iframe.getAttribute('cid'),
+                    function(data) {
+                        var videoNumber = (iframe.getAttribute('vnum') ? Number(iframe.getAttribute('vnum')) : 0);
+                        console.log(videoNumber);
+                        var link = data.items[videoNumber].link;
+                        id = link.substr(link.indexOf("=") + 1);
+                        iframe.setAttribute("src", "https://youtube.com/embed/" + id + "?controls=0&autoplay=1");
+                    }
+                );
+            }
+            var iframes = document.getElementsByClassName('latestVideoEmbed');
+            for (var i = 0, len = iframes.length; i < len; i++) {
+                loadVideo(iframes[i]);
+            }
+        </script>
+    </div>
+    <div class="card tabs">
+        <ul class="nav-tabs">
+            <li class="button" id="1b">
+                <a href="#1" onclick="showDiv('1')">
+                    Ark Admin Manager
+                </a>
+            </li>
+            <li class="button" id="2b">
+                <a href="#2" onclick="showDiv('2')">
+                    Youtube
+                </a>
+            </li>
+            <li class="button" id="3b">
+                <a href="#3" onclick="showDiv('3')">
+                    This Website
+                </a>
+            </li>
+            <li class="button" id="4b">
+                <a href="#4" onclick="showDiv('4')">
+                    Code Snippets
+                </a>
+            </li>
+        </ul>
+        <div class="tab" id="1">
+            test text 1
+        </div>
+        <div class="tab displayNone" id="2">
+            test text 2
+        </div>
+        <div class="tab displayNone" id="3">
+            test text 3
+        </div>
+        <div class="tab displayNone" id="4" style="overflow: scroll">
+            <h2>Code Snippets</h2>
+            these are pieces of mainly java code that i think are interesting, useful or just worth remembering.
+            <pre><code class="java">
+                try {
+		        	BufferedInputStream in = new BufferedInputStream(new URL("https://github.com/blackdragon2447/ArkAdminMenu/releases/download/latest/AAMUpdater.exe").openStream());
+		        	FileOutputStream fileOutputStream = new FileOutputStream("AAMUpdater(new).exe");
+		        	byte dataBuffer[] = new byte[1024];
+		        	int bytesRead;
+		        	while ((bytesRead = in.read(dataBuffer, 0, 1024)) != -1) {
+		        	    fileOutputStream.write(dataBuffer, 0, bytesRead);
+		        	}
+		        	fileOutputStream.close();
+		        } catch (IOException e) {
+		        	e.printStackTrace();
+		        }
+
+		        File file = new File("AAMUpdater.exe");
+		        File file2 = new File("AAMUpdater(new).exe");
+
+		        byte[] f1 = null;
+
+		        if (file.exists()) {
+		        	try {
+		        		f1 = Files.readAllBytes(file.toPath());
+		        	}catch (NoSuchFileException e) {
+		        		e.printStackTrace();
+		        		firstRun = true;
+		        	}
+		        } else {
+		        	System.out.println("first run");
+		        	firstRun = true;
+		        }
+
+		        if (firstRun) {
+		        	System.out.println("copying file");
+		        	Files.copy(file2.toPath(), new File("AAMUpdater.exe").toPath(), StandardCopyOption.REPLACE_EXISTING);
+		        	f1 = Files.readAllBytes(file.toPath());
+		        }
+		        byte[] f2 = Files.readAllBytes(file2.toPath());
+
+		        if (!(Arrays.equals(f1, f2))) {
+		        	System.out.println("update available");
+		        	if(JOptionPane.showConfirmDialog(null, "a new update is available, do you wanna update?") == 0) {
+		        		file.delete();
+		        		file2.renameTo(file);
+		        		ProcessBuilder pb = new ProcessBuilder("AAMUpdater.exe");
+		        		pb.directory(new File(System.getProperty("user.dir")));
+		        		Process p = pb.start();
+		        		System.exit(0);
+		        	}
+		        }
+            </code></pre>
+        </div>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,37 @@
+.card{
+    color: #FFFFFF;
+}
+
+.nav-tabs{
+    display: flex;
+    background: var(--accent1);
+    color: #FFFFFF;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    height: 10%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.highLightButton{
+    background: var(--accent2);
+}
+
+.tabs{
+    display: flex;
+    flex-direction: column;
+}
+
+.tab {
+    background: var(--base3);
+    color: #FFFFFF;
+    height: 90%;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    padding-left: 10px;
+}
+
+.displayNone{
+    display:none
+}
+
