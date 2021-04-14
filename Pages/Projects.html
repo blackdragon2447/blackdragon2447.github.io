@@ -24,7 +24,7 @@
             oldElement = element;
             button.classList.add('highLightButton');
             element.classList.remove('displayNone');
-            window.scrollTo(1,  1);
+            window.scrollTo(1, 1);
         }
 
     </script>
@@ -156,19 +156,45 @@
             </li>
         </ul>
         <div class="tab" id="1">
-            test text 1
+            <h1>Ark Admin Manager</h1>
+            Ark Admin Manager, AAM for short, is a personal project of mine that aims to make the job of being a admin
+            on a Ark server easier, it does this my replacing the most used rcon commands and command sequences
+            with a visual gui.
+            <img src="../Assets/Screenshot%20AAM.png" alt="a screenshot of the AAM gui"><br>
+            this is a screenshot of the program, still in its alpha/beta phase. the program is downloadable on my
+            github. the changelog for updates doesnt exist tho...<br>
+            a little explainer of the gui:<br>
+            in the top bar there are some general settings and the servers option this option is only for server owners
+            tho, for more explanation on the account system see a bit further down.<br>
+            the tab bar underneath that is where you navigate the program, most tabs are pretty self explanatory
+            the imported items that show any mod items that users imported, the queue is a list of commands that the
+            uses queued.
+            <h3>the account system</h3>
+            the account system is relatively simple, there are 2 types of accounts: owner and admin, an owner account
+            can be created by just making a new account, an owner account sets up a server and can claim rcon ip addresses
+            and ports, set commands that server admins cant use and of course create admin accounts, they do this by
+            registering a admin my their steam id, an admin can then, if they have a steam id registered, create an
+            account liked to that steam id.
         </div>
         <div class="tab displayNone" id="2">
-            test text 2
+            <h1>Youtube</h1>
+            my youtube channel, while it is something I really enjoy it has been on a back burner for the last (couple of)
+            months being overshadowed by <a href="#1"  onclick="showDiv(1)">Ark Admin Manager</a>, my work as a admin for
+            the ark server elf and other games. I will tho hopefully soon continue making videos, may continue the
+            infinity series, may do a 100 day format, idk yet.
         </div>
         <div class="tab displayNone" id="3">
-            test text 3
+            Of course I have to include my website on the website as it is my only public school project and the project I
+            used for learning HTML, CSS and basics of javascript.
         </div>
         <div class="tab displayNone" id="4">
             <h2>Code Snippets</h2>
-            <h3>these are pieces of mainly java code that i think are interesting, useful or just worth remembering.</h3>
+            <h3>these are pieces of mainly java code that I think are interesting, useful or just worth remembering.</h3>
             this one is an auto updater, just replace filenames and mirror ad it should work for you, make sure the downloaded updater is exe tho.
             <pre><code class="java code">
+/**
+ *downloading the new updater
+ */
 try {
 	BufferedInputStream in = new BufferedInputStream(new URL("https://github.com/blackdragon2447/ArkAdminMenu/releases/download/latest/AAMUpdater.exe").openStream());
 	FileOutputStream fileOutputStream = new FileOutputStream("AAMUpdater(new).exe");
@@ -182,6 +208,9 @@ try {
 	e.printStackTrace();
 }
 
+/**
+ * making variables for the new and old updater and reading those into byte arrays to compare them
+ */
 File file = new File("AAMUpdater.exe");
 File file2 = new File("AAMUpdater(new).exe");
 
@@ -195,10 +224,13 @@ if (file.exists()) {
 		firstRun = true;
 	}
 } else {
-	System.out.println("first run");
+    //if we fail to read the file were gonna assume that it doesnt exist and the program runs for the first time
 	firstRun = true;
 }
 
+/**
+ *if we run for the first time are gonna set up the environment as if we ran before.
+ */
 if (firstRun) {
 	System.out.println("copying file");
 	Files.copy(file2.toPath(), new File("AAMUpdater.exe").toPath(), StandardCopyOption.REPLACE_EXISTING);
@@ -206,6 +238,9 @@ if (firstRun) {
 }
 byte[] f2 = Files.readAllBytes(file2.toPath());
 
+/**
+ *checking if the updater is newer than the current one, of it is run it.
+ */
 if (!(Arrays.equals(f1, f2))) {
 	System.out.println("update available");
 	if(JOptionPane.showConfirmDialog(null, "a new update is available, do you wanna update?") == 0) {
@@ -216,6 +251,103 @@ if (!(Arrays.equals(f1, f2))) {
 		Process p = pb.start();
 		System.exit(0);
 	}
+}
+            </code></pre>
+            this one is my default pair data type, I like using my own class instead of one from a lib so it is
+            the same in every project, note to self: make a personal lib;
+            <pre><code class="code java">
+/**
+ * this class is the object for a data pair, the values of T and U dont have to be the same
+ * @author Blackdragon2447
+ *
+ * @param &ltT&gt the first type in the pair
+ * @param &ltU&gt the second type in the pair
+ */
+public class Pair&ltT, U&gt{
+
+	T p1;
+	U p2;
+
+	/**
+	 * makes a new pair
+	 * @param a the value to be set for the first field
+	 * @param b the value to be set for the second field
+	 */
+	public Pair(T a, U b){
+		this.p1 = a;
+		this.p2 = b;
+	}
+
+	/**
+	 * same as the constructor but for an exsitent pair.
+	 * @param a the value to be set for the first field
+	 * @param b the value to be set for the second field
+	 */
+	public void setValue(T a, U b){
+		this.p1 = a;
+		this.p2 = b;
+	}
+
+	/**
+	 * @return returns the pair.
+	 */
+	public Pair&ltT, U&gt getValue(){
+		return this;
+	}
+
+	/**
+	 * @return returns the first value of the pair
+	 */
+	public T getFirstValue() {
+		return p1;
+	}
+
+	/**
+	 * @return returns the second value of the pair
+	 */
+	public U getSecondValue() {
+		return p2;
+	}
+
+	/**
+	 * tries to make a csv vlaue of the pair
+	 * @return returns the result of the pairs csv value
+	 */
+	public String GetcsvValue() {
+		return p1.toString() + ", " + p2.toString();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public boolean equals(Object obj) {
+		Pair&ltT, U&gt compObj = (Pair&ltT, U&gt) obj;
+		return ((this.p1 == compObj.p1) && (this.p2 == compObj.p2));
+	}
+
+}
+            </code></pre>
+            this is a method for reading CSV files into a list of pairs of string, string. for the pair datatype look up.
+            <pre><code class="code java">
+/**
+* reads a CSV file into a list of pairs
+* @param path the path of the file
+* @return the list of pairs.
+* @throws IOException
+*/
+@SuppressWarnings("unchecked")
+public static ArrayList&ltPai&ltString, Boolean&gt&gt readCSV(String path) throws IOException {
+
+	BufferedReader br = new BufferedReader(new FileReader(path));
+	while((Line = br.readLine()) != null) {
+		String[] values = Line.split(",");
+		DataPair = new Pair&ltString, String%gt(values[0].replace("﻿", ""), values[1]);
+		PairList.add(DataPair);
+	}
+
+	br.close();
+
+	return PairList;
+
 }
             </code></pre>
         </div>

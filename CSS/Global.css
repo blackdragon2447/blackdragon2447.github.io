@@ -9,6 +9,38 @@
     --accent2: #8D0202;
     --accent3: #971919;
     --text: #FFFFFF;
+    --grid: 'a a a'
+            'b c c'
+            'b c c';
+    --grid-rows: 50px auto auto;
+    --grid-columns: 240px auto auto;
+    --gap: 1rem;
+    --sidebarDirection: column;
+}
+
+@media only screen and (max-width: 1200px){
+    /*Tablets [701px -> 1200px]*/
+    :root{
+        --grid: 'a a a'
+                'b c c'
+                'b c c';
+        --gap: 1rem;
+        --grid-rows: 50px auto auto;
+        --grid-columns: 240px auto auto;
+    }
+}
+@media only screen and (max-width: 700px){
+    /*Big smartphones [0px -> 700px]*/
+    :root{
+        --grid: 'a a'
+                'c c'
+                'c c'
+                'd d'
+                'b b';
+        --gap: 0rem;
+        --grid-rows: 50px auto auto 50px 240px;
+        --grid-columns: auto auto;
+    }
 }
 
 .dark{
@@ -87,21 +119,20 @@ div, form, li, ol, p, ul {
     margin: 0;
     padding: 0;
     height: 100%;
+    width: 100%;
     display: grid;
-    gap: 1rem;
-
+    column-gap: var(--gap);
+    row-gap: 1rem;
     /* Explicit grid */
-    grid-template-areas:
-        'a a a'
-        'b c c'
-        'b c c';
+    grid-template-areas: var(--grid);
 
-    grid-template-rows: 50px auto auto;
-    grid-template-columns: 240px auto auto;
+    grid-template-rows: var(--grid-rows);
+    grid-template-columns: var(--grid-columns);
 }
 
 .card {
     background: var(--base3);
+    clear: both;
 }
 
 .card:nth-child(1) {
@@ -116,7 +147,7 @@ div, form, li, ol, p, ul {
     border-radius: 25px;
     grid-area: b;
     display: flex;
-    flex-direction: column;
+    flex-direction: var(--sidebarDirection);
     justify-content: start;
     align-items: center;
     padding: 10px;
@@ -267,9 +298,11 @@ div, form, li, ol, p, ul {
 
 .innerCard:nth-child(3){
     grid-area: h;
-    background-image: url(../assets/ytLogo.png);
-    background-repeat: no-repeat;
-    background-size: cover;
+}
+
+img {
+    max-width:100%;
+    min-width: 100%;
 }
 
 .innerCard:nth-child(4){
