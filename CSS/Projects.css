@@ -1,3 +1,7 @@
+body{
+    overflow-x: hidden;
+}
+
 .card{
     color: #FFFFFF;
 }
@@ -8,7 +12,7 @@
     color: #FFFFFF;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
-    height: 10%;
+    height: 4rem;
     justify-content: space-evenly;
     align-items: center;
 }
@@ -25,7 +29,8 @@
 .tab {
     background: var(--base3);
     color: #FFFFFF;
-    height: 90%;
+    height: auto;
+    min-height: 90%;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
     padding-left: 10px;
@@ -35,3 +40,7 @@
     display:none
 }
 
+.code{
+    overflow-x: scroll;
+    width: 77vw;
+}
