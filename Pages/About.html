@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BlackDragon2447's Home</title>
+    <link rel="stylesheet" href="../CSS/Global.css">
+    <link rel="stylesheet" href="../CSS/About.css">
+</head>
+<body class="dark">
+<section class="grid" id="grid">
+    <ul class="card">
+        <li class="button">
+            <a href="Index.html">HOME</a>
+        </li>
+        <li class="button">
+            <a href="About.html">ABOUT</a>
+        </li>
+        <li class="button has-dropdown">
+            <a href="#">
+                <svg width="10" height="10" class="triangle1">
+                    <g>
+                        <title>Layer 1</title>
+                        <line id="svg_4" y2="10" x2="0" y1="0" x1="0" opacity="undefined" stroke="#000" fill="none"/>
+                        <line id="svg_5" y2="0" x2="0" y1="5" x1="10" opacity="undefined" stroke="#000" fill="none"/>
+                        <line id="svg_6" y2="0" x2="0" y1="5" x1="10" opacity="undefined" stroke="#000" fill="none"/>
+                        <line id="svg_7" y2="5" x2="10" y1="10" x1="0" opacity="undefined" stroke="#000" fill="none"/>
+                    </g>
+                </svg>
+                PROJECTS
+            </a>
+            <ul class="dropdown">
+                <li class="dropdown-item">
+                    <a href="Projects.html#1">Ark Admin Manager</a>
+                </li>
+                <li class="dropdown-item">
+                    <a href="Projects.html#2">Youtube</a>
+                </li>
+                <li class="dropdown-item">
+                    <a href="Projects.html#3">This Website</a>
+                </li>
+                <li class="dropdown-item">
+                    <a href="Projects.html#4">Code Snippets</a>
+                </li>
+            </ul>
+        </li>
+        <li class="button has-dropdown">
+            <a href="#">
+                <svg width="10" height="10" class="triangle2">
+                    <g>
+                        <title>Layer 1</title>
+                        <line id="svg_4" y2="10" x2="0" y1="0" x1="0" opacity="undefined" stroke="#000" fill="none"/>
+                        <line id="svg_5" y2="0" x2="0" y1="5" x1="10" opacity="undefined" stroke="#000" fill="none"/>
+                        <line id="svg_6" y2="0" x2="0" y1="5" x1="10" opacity="undefined" stroke="#000" fill="none"/>
+                        <line id="svg_7" y2="5" x2="10" y1="10" x1="0" opacity="undefined" stroke="#000" fill="none"/>
+                    </g>
+                </svg>
+                OTHER PLATFORMS
+            </a>
+            <ul class="dropdown">
+                <li class="dropdown-item">
+                    <a href="https://www.youtube.com/channel/UCQXVSW0pcuGE7gf6ssJQMZw">youtube</a>
+                </li>
+                <li class="dropdown-item">
+                    <a href="https://github.com/blackdragon2447">github</a>
+                </li>
+                <li class="dropdown-item">
+                    <a href="#">discord</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <div class="card">
+        <p class="sidebarText">Latest Video</p>
+        <iframe class="latestVideoEmbed" vnum='0' cid="UCQXVSW0pcuGE7gf6ssJQMZw" width="200" height="114" frameborder="0" allowfullscreen></iframe>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script>
+            var reqURL = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent("https://www.youtube.com/feeds/videos.xml?channel_id=");
+            function loadVideo(iframe) {
+                $.getJSON(reqURL + iframe.getAttribute('cid'),
+                    function(data) {
+                        var videoNumber = (iframe.getAttribute('vnum') ? Number(iframe.getAttribute('vnum')) : 0);
+                        console.log(videoNumber);
+                        var link = data.items[videoNumber].link;
+                        id = link.substr(link.indexOf("=") + 1);
+                        iframe.setAttribute("src", "https://youtube.com/embed/" + id + "?controls=0&autoplay=1");
+                    }
+                );
+            }
+            var iframes = document.getElementsByClassName('latestVideoEmbed');
+            for (var i = 0, len = iframes.length; i < len; i++) {
+                loadVideo(iframes[i]);
+            }
+        </script>
+    </div>
+    <div class="card">
+        <h1>About Me</h1>
+        <h2>In Short</h2>
+    </div>
+</section>
+</body>
+</html>

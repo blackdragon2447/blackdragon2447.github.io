@@ -1,0 +1,4 @@
+.card:nth-child(3){
+    background: var(--accent1);
+    border-radius: 25px;
+}

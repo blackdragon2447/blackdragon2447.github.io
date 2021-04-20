@@ -1,5 +1,6 @@
 :root{
     --tab-height: 90%;
+    scroll-padding: 100%;
 }
 
 @media only screen and (max-width: 1200px){
@@ -10,10 +11,6 @@
     :root{
         --tab-height: 100%;
     }
-}
-
-body{
-    overflow-y: auto;
 }
 
 .card{
@@ -45,7 +42,6 @@ body{
     background: var(--base3);
     color: #FFFFFF;
     height: auto;
-    min-height: var(--tab-height);
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
     padding-left: 10px;
