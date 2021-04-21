@@ -2,9 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <meta charset="UTF-8">
-    <title>BlackDragon2447's Home</title>
+    <title>BlackDragon2447's Home | Projects</title>
     <link rel="stylesheet" href="../CSS/Global.css">
     <link rel="stylesheet" href="../CSS/Projects.css">
     <script>
@@ -178,13 +176,16 @@
             infinity series, may do a 100 day format, idk yet.<br>
             Previous series have included project ozone lite, MC Eternal (never finished due to lag) and FTB interactions
             (never finished because of me being fed up of grinding). the current series is on a modpack called Infinity
-            Reloaded, a 3rd party remake aof FTB Infinity Evolved (my favorite pack).
+            Reloaded, a 3rd party remake aof FTB Infinity Evolved (my favorite pack). may i continue making videos you'll
+            see the current one on the left side replaced with a new one
         </div>
         <div class="tab displayNone" id="3">
             <h1>This Website</h1>
             Of course I have to include my website on the website as it is my only public school project and the project I
             used for learning HTML, CSS and basics of javascript, at the moment of writing this the project isn't public yet
-            and far from done.
+            and far from done.<br>
+            some of the code snippets for this website are available on the code snippets tab, the whole source code is
+            available at my github, as is the source code for AAM, client and server.
         </div>
         <div class="tab displayNone" id="4">
             <h2>Code Snippets</h2>
@@ -348,6 +349,30 @@ public static ArrayList&ltPai&ltString, Boolean&gt&gt readCSV(String path) throw
 	return PairList;
 
 }
+            </code></pre>
+            this piece of code is used for making a youtube video embed that auto updates, to get it to work replace the cid tag
+            value on the iframe with the channel id you want the latest video from.
+            <pre><code class="code html">
+&ltiframe class="latestVideoEmbed" vnum='0' cid="UCQXVSW0pcuGE7gf6ssJQMZw" width="200" height="114" frameborder="0" allowfullscreen&gt&lt/iframe&gt
+&ltscript src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"&gt&lt/script&gt
+&ltscript&gt
+    var reqURL = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent("https://www.youtube.com/feeds/videos.xml?channel_id=");
+    function loadVideo(iframe) {
+        $.getJSON(reqURL + iframe.getAttribute('cid'),
+            function(data) {
+                var videoNumber = (iframe.getAttribute('vnum') ? Number(iframe.getAttribute('vnum')) : 0);
+                console.log(videoNumber);
+                var link = data.items[videoNumber].link;
+                id = link.substr(link.indexOf("=") + 1);
+                iframe.setAttribute("src", "https://youtube.com/embed/" + id + "?controls=0&autoplay=1");
+            }
+        );
+    }
+    var iframes = document.getElementsByClassName('latestVideoEmbed');
+    for (var i = 0, len = iframes.length; i &lt len; i++) {
+        loadVideo(iframes[i]);
+    }
+&lt/script&gt
             </code></pre>
         </div>
     </div>

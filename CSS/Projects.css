@@ -50,6 +50,11 @@
     display: block;
 }
 
+
+.tab a:visited{
+    color: #FFFFFF;
+}
+
 .displayNone{
     display:none
 }
