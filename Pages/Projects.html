@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- linking stylesheets and setting the title-->
     <meta charset="UTF-8">
     <title>BlackDragon2447's Home | Projects</title>
     <link rel="stylesheet" href="../CSS/Global.css">
     <link rel="stylesheet" href="../CSS/Projects.css">
+    <!-- script to let people navigate tabs -->
     <script>
 
         var oldElement;
@@ -26,6 +28,7 @@
         }
 
     </script>
+    <!-- opening the right tab on load -->
     <script>
         window.onload = function () {
             if(window.location.hash) {
@@ -34,12 +37,15 @@
             }
         }
     </script>
+    <!-- enabling code highlighting -->
     <link rel="stylesheet" href="../highlight/styles/atom-one-dark.css">
     <script src="../highlight/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 </head>
-<body id="top">
+<body>
+<!-- defining the main grid that contains the web page -->
 <section class="grid" id="grid">
+    <!-- the top bar -->
     <ul class="card">
         <li class="button">
             <a href="Index.html">HOME</a>
@@ -101,6 +107,7 @@
             </ul>
         </li>
     </ul>
+    <!-- the side bar -->
     <div class="card">
         <p class="sidebarText">Latest Video</p>
         <iframe class="latestVideoEmbed" vnum='0' cid="UCQXVSW0pcuGE7gf6ssJQMZw" width="200" height="114" frameborder="0" allowfullscreen></iframe>
@@ -124,29 +131,33 @@
             }
         </script>
     </div>
+    <!-- the main content-->
     <div class="card tabs">
+        <!-- the buttons fot the tabs-->
         <ul class="nav-tabs">
-            <li class="button" id="1b">
+            <li class="tab-button" id="1b">
                 <a href="#1" onclick="showDiv('1')">
                     Ark Admin Manager
                 </a>
             </li>
-            <li class="button" id="2b">
+            <li class="tab-button" id="2b">
                 <a href="#2" onclick="showDiv('2')">
                     Youtube
                 </a>
             </li>
-            <li class="button" id="3b">
+            <li class="tab-button" id="3b">
                 <a href="#3" onclick="showDiv('3')">
                     This Website
                 </a>
             </li>
-            <li class="button" id="4b">
+            <li class="tab-button" id="4b">
                 <a href="#4" onclick="showDiv('4')">
                     Code Snippets
                 </a>
             </li>
         </ul>
+        <!-- the different tabs all but one have a class making them invisible til a tab is selected -->
+        <!-- tab 1 -->
         <div class="tab" id="1">
             <h1>Ark Admin Manager</h1>
             Ark Admin Manager, AAM for short, is a personal project of mine that aims to make the job of being a admin
@@ -168,6 +179,7 @@
             registering a admin my their steam id, an admin can then, if they have a steam id registered, create an
             account liked to that steam id.
         </div>
+        <!-- tab 2 -->
         <div class="tab displayNone" id="2">
             <h1>Youtube</h1>
             my youtube channel, while it is something I really enjoy it has been on a back burner for the last (couple of)
@@ -179,6 +191,7 @@
             Reloaded, a 3rd party remake aof FTB Infinity Evolved (my favorite pack). may i continue making videos you'll
             see the current one on the left side replaced with a new one
         </div>
+        <!-- tab 3 -->
         <div class="tab displayNone" id="3">
             <h1>This Website</h1>
             Of course I have to include my website on the website as it is my only public school project and the project I
@@ -187,10 +200,14 @@
             some of the code snippets for this website are available on the code snippets tab, the whole source code is
             available at my github, as is the source code for AAM, client and server.
         </div>
+        <!-- tab 4, this one is special cause it has code highlighting-->
         <div class="tab displayNone" id="4">
             <h2>Code Snippets</h2>
             <h3>these are pieces of mainly java code that I think are interesting, useful or just worth remembering.</h3>
             this one is an auto updater, just replace filenames and mirror ad it should work for you, make sure the downloaded updater is exe tho.
+            <!-- code highlighting is achieved by putting the code in a <pre> so the formatting is correct and
+             inside a <code> with the class java to let highlight js know to highlight it, the code class is
+             for placement of the block-->
             <pre><code class="java code">
 /**
  *downloading the new updater
@@ -335,12 +352,13 @@ public class Pair&ltT, U&gt{
 * @throws IOException
 */
 @SuppressWarnings("unchecked")
-public static ArrayList&ltPai&ltString, Boolean&gt&gt readCSV(String path) throws IOException {
+public static ArrayList&ltPair&ltString, String&gt&gt readCSV(String path) throws IOException {
 
 	BufferedReader br = new BufferedReader(new FileReader(path));
 	while((Line = br.readLine()) != null) {
 		String[] values = Line.split(",");
-		DataPair = new Pair&ltString, String%gt(values[0].replace("﻿", ""), values[1]);
+		//							\/ unkown why i did this
+		DataPair = new Pair&ltString, String&gt(values[0].replace("﻿", ""), values[1]);
 		PairList.add(DataPair);
 	}
 

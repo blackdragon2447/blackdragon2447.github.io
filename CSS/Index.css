@@ -1,0 +1,42 @@
+/* setting the layout of the main content */
+.subGrid{
+    display: grid;
+    grid-template-areas:
+        'f f g'
+        'h i i'
+        'h i i';
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.innerCard:nth-child(1){
+    grid-area: f;
+}
+
+.innerCard:nth-child(2){
+    grid-area: g;
+    background-image: url(../assets/FTD_Alastor.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.innerCard:nth-child(3){
+    grid-area: h;
+}
+
+.innerCard:nth-child(4){
+    grid-area: i;
+}
+
+.innerCard{
+    color: white;
+    background: var(--accent1);
+    border-radius: 25px;
+    padding: 10px;
+}
+
+img {
+    max-width:100%;
+    min-width: 100%;
+}

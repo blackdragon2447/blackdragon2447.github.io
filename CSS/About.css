@@ -1,4 +1,38 @@
+/* setting the layout of the main content */
 .card:nth-child(3){
+    display: flex;
+    flex-direction: column;
+}
+
+/* the page header */
+.header{
     background: var(--accent1);
-    border-radius: 25px;
+    color: #FFFFFF;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    padding-left: 10px;
+    padding-right: 10px ;
+}
+
+/* the page test */
+.text{
+    background: var(--base3);
+    color: #FFFFFF;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+}
+
+.text a{
+    color: #FFFFFF;
+}
+
+.text a:hover{
+    color: #FFFFFF;
+}
+
+.text a:visited{
+    color: #FFFFFF;
 }

@@ -1,3 +1,4 @@
+/* setting font and basic  variables */
 :root{
     font-family: 'Roboto', sans-serif;
 
@@ -18,6 +19,7 @@
     --sidebarDirection: column;
 }
 
+/*changing the grid based on screen size to make it easier to display o mobile */
 @media only screen and (max-width: 1200px){
     /*Tablets [701px -> 1200px]*/
     :root{
@@ -43,26 +45,7 @@
     }
 }
 
-.dark{
-    --base1: #030201;
-    --base2: #161413;
-    --base3: #353331;
-    --base4: #7e7c77;
-    --accent1: #6F0B0B;
-    --accent2: #8D0202;
-    --accent3: #971919;
-}
-
-.light{
-    --base1: #F6F6F6;
-    --base2: #BAB9B7;
-    --base3: #9C9B97;
-    --base4: #7e7c77;
-    --accent1: #A71111;
-    --accent2: #C90303;
-    --accent3: #D32222;
-}
-
+/* basic html options */
 html{
     width: 100%;
     height: 100%;
@@ -73,6 +56,7 @@ html{
     overflow: auto;
 }
 
+/* basic body options */
 body{
     width: 100%;
     height: 100%;
@@ -82,12 +66,13 @@ body{
     background-color: var(--base1);
 }
 
-
+/* making default margins 0 */
 div, form, li, ol, p, ul {
     margin: 0;
     padding: 0;
 }
 
+/* animations for the buttons in the top bar */
 @keyframes triangleRotate {
      0%{
         transform: rotate(0deg);
@@ -115,6 +100,7 @@ div, form, li, ol, p, ul {
     }
 }
 
+/* the grid layout for the pages, vars are used to make it dynamic */
 .grid{
     margin: 0;
     padding: 0;
@@ -130,11 +116,13 @@ div, form, li, ol, p, ul {
     grid-template-columns: var(--grid-columns);
 }
 
+/* cards are the elements placed in the grid */
 .card {
     background: var(--base3);
     clear: both;
 }
 
+/* the top bar card */
 .card:nth-child(1) {
     background-color: var(--base2);
     grid-area: a;
@@ -143,6 +131,7 @@ div, form, li, ol, p, ul {
     align-items: center;
 }
 
+/* the sidebar card */
 .card:nth-child(2) {
     border-radius: 25px;
     grid-area: b;
@@ -153,22 +142,13 @@ div, form, li, ol, p, ul {
     padding: 10px;
 }
 
+/* the card in the middle, this one is changed most through the pages */
 .card:nth-child(3) {
     background: var(--base1);
     grid-area: c;
 }
 
-.subGrid{
-    display: grid;
-    grid-template-areas:
-        'f f g'
-        'h i i'
-        'h i i';
-    gap: 1rem;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-}
-
+/* these are the buttons on the top bar */
 .button{
     height: 60%;
     background-color: var(--accent3);
@@ -182,6 +162,7 @@ div, form, li, ol, p, ul {
     font-weight: bold;
 }
 
+/* making the links on the buttons appear less link like */
 .button a{
     text-decoration: none;
     color: var(--base2);
@@ -192,6 +173,7 @@ div, form, li, ol, p, ul {
     color: var(--base3);
 }
 
+/* making the triangles in the buttons wiggle/rotate */
 .button a:hover .triangle1{
     animation: wiggle 0.25s ease;
     animation-fill-mode: forwards;
@@ -217,6 +199,7 @@ div, form, li, ol, p, ul {
     color: var(--base2);
 }
 
+/* the dropdown menu */
 .dropdown{
     position: absolute;
     width: 200px;
@@ -256,55 +239,27 @@ div, form, li, ol, p, ul {
     color: var(--base4);
 }
 
+/* making buttons that have dropdowns actually open the dropdowns */
 .has-dropdown:focus-within .dropdown{
     opacity: 1;
     pointer-events: auto;
     z-index: 2;
 }
 
+/* adding circles before the links in the dropdowns */
 .dropdown-item a::before {
     content: '';
     border: 2px solid white;
     border-radius: 50%;
-    width: 1rem;
-    height: 1rem;
+    width: 0.5rem;
+    height: 0.5rem;
     display: inline-block;
     vertical-align: middle;
     margin-right: 10px;
 }
 
+/* coloring the sidebar text */
 .sidebarText{
     color: var(--base4);
     font-weight: bold;
-}
-
-.innerCard{
-    color: white;
-    background: var(--accent1);
-    border-radius: 25px;
-    padding: 10px;
-}
-
-.innerCard:nth-child(1){
-    grid-area: f;
-}
-
-.innerCard:nth-child(2){
-    grid-area: g;
-    background-image: url(../assets/FTD_Alastor.png);
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-.innerCard:nth-child(3){
-    grid-area: h;
-}
-
-img {
-    max-width:100%;
-    min-width: 100%;
-}
-
-.innerCard:nth-child(4){
-    grid-area: i;
 }

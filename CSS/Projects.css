@@ -1,8 +1,10 @@
+/* setting page specific vars */
 :root{
     --tab-height: 90%;
     scroll-padding: 100%;
 }
 
+/* changing tab height based on screen size */
 @media only screen and (max-width: 1200px){
     /*Tablets [601px -> 1200px]*/
 }
@@ -13,37 +15,68 @@
     }
 }
 
-.card{
-    color: #FFFFFF;
-}
 
+/* setting the layout for the tab bar */
 .nav-tabs{
     display: flex;
-    background: var(--accent1);
     color: #FFFFFF;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
     height: 4rem;
     min-height: 4rem;
-    justify-content: space-evenly;
-    align-items: center;
+    padding-left: 25px;
+    justify-content: left;
+    align-items: flex-end;
 }
 
+/* the tab buttons */
+.tab-button{
+    height: 60%;
+    background-color: var(--accent3);
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-weight: bold;
+}
+
+/* making the links look less link like */
+.tab-button a{
+    text-decoration: none;
+    color: var(--base2);
+}
+
+.tab-button a:hover{
+    text-decoration: none;
+    color: var(--base3);
+}
+
+.tab-button a:hover .triangle1{
+    animation: wiggle 0.25s ease;
+    animation-fill-mode: forwards;
+}
+
+/* the class for highlighting the selected button */
 .highLightButton{
     background: var(--accent2);
 }
 
+/* layout for the box containing the tabs */
 .tabs{
     display: flex;
     flex-direction: column;
 }
 
+/* the actual tab */
 .tab {
     background: var(--base3);
     color: #FFFFFF;
     height: auto;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
+    border-radius: 25px;
     padding-left: 10px;
     padding-bottom: 10px;
     padding-right: 10px ;
@@ -55,10 +88,12 @@
     color: #FFFFFF;
 }
 
+/* the class for making tabs invisible */
 .displayNone{
-    display:none
+    display:none;
 }
 
+/* setting the layout and placement of code blocks */
 .code{
     overflow-x: scroll;
     width: 77vw;
