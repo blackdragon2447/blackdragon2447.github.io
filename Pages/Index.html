@@ -75,23 +75,23 @@
         <!-- the side bar -->
         <div class="card">
             <p class="sidebarText">Latest Video</p>
-            <iframe class="latestVideoEmbed" vnum='0' cid="UCQXVSW0pcuGE7gf6ssJQMZw" width="200" height="114" frameborder="0" allowfullscreen></iframe>
+            <iframe class="latestVideoEmbed" vnum='0' cid="UCQXVSW0pcuGE7gf6ssJQMZw" width="200" height="114" allowfullscreen></iframe>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
             <script>
-                var reqURL = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent("https://www.youtube.com/feeds/videos.xml?channel_id=");
+                let reqURL = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent("https://www.youtube.com/feeds/videos.xml?channel_id=");
                 function loadVideo(iframe) {
                     $.getJSON(reqURL + iframe.getAttribute('cid'),
                         function(data) {
-                            var videoNumber = (iframe.getAttribute('vnum') ? Number(iframe.getAttribute('vnum')) : 0);
+                            let videoNumber = (iframe.getAttribute('vnum') ? Number(iframe.getAttribute('vnum')) : 0);
                             console.log(videoNumber);
-                            var link = data.items[videoNumber].link;
-                            id = link.substr(link.indexOf("=") + 1);
+                            let link = data.items[videoNumber].link;
+                            let id = link.substr(link.indexOf("=") + 1);
                             iframe.setAttribute("src", "https://youtube.com/embed/" + id + "?controls=0&autoplay=1");
                         }
                     );
                 }
-                var iframes = document.getElementsByClassName('latestVideoEmbed');
-                for (var i = 0, len = iframes.length; i < len; i++) {
+                let iframes = document.getElementsByClassName('latestVideoEmbed');
+                for (let i = 0, len = iframes.length; i < len; i++) {
                     loadVideo(iframes[i]);
                 }
             </script>
@@ -111,7 +111,7 @@
             </div>
             <div class="innerCard"></div>
             <div class="innerCard">
-                <img src="../Assets/ytLogo.png">
+                <img src="../Assets/ytLogo.png" alt="">
             </div>
             <div class="innerCard">
                 <p>

@@ -263,3 +263,7 @@ div, form, li, ol, p, ul {
     color: var(--base4);
     font-weight: bold;
 }
+
+iframe{
+    border: 0;
+}
