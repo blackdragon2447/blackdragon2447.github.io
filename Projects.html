@@ -412,7 +412,14 @@ public static ArrayList&ltPair&ltString, String&gt&gt readCSV(String path) throw
           So, we can boot next thing is to actually run something, the bootloader will look for an `_start` in our binairy, so we have to difine it.
           <pre><code class="code rust">
 fn _start() {
-
+  todo!()
+}
+          </code></pre>
+          But that isn't gonna do much since rustc, our compiler, wil mangle the name of the function, making it so that the bootloader can't find it, to prevent rustc from mangeling the name we need to add `#[no_mangle]` to the function, second, the bootloader is gonna expect a C function and not a rust one, so we'll have to tell the compiler to make it look and act like a C one in the final binairy, and last but not least, the function cannot return, instead it should tell the system to exit when it is done, so adding all of that to the function's signature we get something like this:
+          <pre><code class="code rust">
+#[no_mangle]
+pub extern "C" fn _start -> ! {
+  loop {}
 }
           </code></pre>
         </div>
