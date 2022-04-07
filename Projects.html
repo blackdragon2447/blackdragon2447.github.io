@@ -405,7 +405,16 @@ public static ArrayList&ltPair&ltString, String&gt&gt readCSV(String path) throw
             </code></pre>
         </div>
         <div class="tab displayNone" id="5">
+          <h1>Making an OS for the Mindstorms EV3 in Rust</h1>
+          <h3>Booting</h3>
+          So, Making an os, I think it is only apropriate to start where an OS starts each time it runs: booting. And to be a bit more specific, how do we boot, usualy if one is gonna boot linux there is a bootloader, which is loaded from the disk by the bios/UEFI and is responsible for booting the actual os, so finding the thing it can execute and executing it, what this thing is we'll get to later, first we need to know if we have a bootloader, yes, we just supply it a valid executable and it finds an executes it, or no, and it'll just load the first few sectors of the drive and we'll have to take it from there ourselves, so lets hope for the first one. <br>
+          <h3>Starting</h3>
+          So, we can boot next thing is to actually run something, the bootloader will look for an `_start` in our binairy, so we have to difine it.
+          <pre><code class="code rust">
+fn _start() {
 
+}
+          </code></pre>
         </div>
     </div>
 </section>
